@@ -17,9 +17,10 @@
 
 # End‑to‑End D2C E‑Commerce of Boat Marketplace
 
-This project designs a relational database for boAt’s Direct-to-Consumer (D2C) e-commerce ecosystem, enabling the brand to sell audio and lifestyle products directly to end customers through its owned digital channels. The system connects Customers, Products, SKUs, Warehouses, Inventory, Delivery Partners, and Orders, capturing the complete order lifecycle from customer purchase to last-mile delivery.
+This project designs a relational database for boAt’s Direct-to-Consumer (D2C) e-commerce ecosystem, enabling the brand to sell audio and lifestyle products directly to end customers through its owned digital channels. The system connects Customers, Products, SKUs, Warehouses, Inventory, Delivery Partners, and Orders, capturing the complete order lifecycle from customer purchase to last-mile delivery. 
 
 The entities and their relationships are structured to support core D2C operations such as product catalog and SKU management, real-time inventory visibility across fulfillment centers, order orchestration, shipment routing to delivery partners, and end-to-end order tracking. The design also enables returns and replacements handling, customer-level analytics, and performance measurement across fulfillment, delivery timelines, and service quality, supporting data-driven optimization of boAt’s D2C supply chain and customer experience.
+
 ---
 <img width="1224" height="634" alt="image" src="https://github.com/DilipBaduwal/Udaan_B2B_Group9_Sec_C/blob/main/image.png?raw=true" />
 
