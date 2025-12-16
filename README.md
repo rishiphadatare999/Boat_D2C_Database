@@ -22,37 +22,48 @@ This project designs a relational database for boAt’s Direct-to-Consumer (D2C)
 The entities and their relationships are structured to support core D2C operations such as product catalog and SKU management, real-time inventory visibility across fulfillment centers, order orchestration, shipment routing to delivery partners, and end-to-end order tracking. The design also enables returns and replacements handling, customer-level analytics, and performance measurement across fulfillment, delivery timelines, and service quality, supporting data-driven optimization of boAt’s D2C supply chain and customer experience.
 
 ---
-<img width="1224" height="634" alt="image" src="/Rajat92358/flipkart-database-project/blob/main/Screenshot%202025-12-16%20190428.png" />
+
+<img width="1224" height="750" alt="image" src="https://github.com/Rajat92358/flipkart-database-project/blob/main/Screenshot%202025-12-16%20190428.png" />
 
 
 ## Project Overview
 
 This system ensures seamless coordination between:
 - **Customer**
-- **Supplier**
-- **Warehouse**
-- **Driver**
-- **SKU**
 - **Product**
-- **Orders**
-- **Logistics**
+- **Product Variant**
+- **Category**
+- **Cart**
+- **Cart Item**
+- **Wishlist**
+- **Order**
+- **Order Item**
+- **Payment**
+- **Coupon**
+- **Shipping**
+- **Review**
 
 
-It provides accurate tracking of supplier listings, product assortments, shipments, pricing, and retailer order fulfillment across the Udaan network.
+It provides accurate tracking of boAt’s product catalog, SKU-level assortments, inventory movements, order shipments, pricing, and end-customer order fulfillment across boAt’s direct-to-consumer ecosystem.
 
 ---
 
 ## Relationships References 
 
-| Module | Dependencies | Insert after |
-|--------|--------------|--------------|
-| customer_data | `None`| `First` |
-| product | `None`| `After customer_data` |
-| sku | `product(product_id)`| `After sku` |
-| warehouse | `sku(sku_id)`|`After sku` |
-| driver_detail | `warehouse(warehouse_id)`|`After warehouse` |
-| placed_orders | `customer_data(customer_id)`, ` sku(sku_id)`| `After customer_data`, `sku` |
-| supplier | `sku(product_id)`, `warehouse(warehouse_id)` , `sku(sku_id)` | `After sku`,`warehouse`|
-| logistic | `placed_orders(order_id)`, `warehouse` , `driver_detail`  | `After placed_orders`,`warehouse`,`driver_detail`|
+| Module           | Dependencies                                             | Insert after                          |
+| ---------------- | -------------------------------------------------------- | ------------------------------------- |
+| category         | `None`                                                   | `First`                               |
+| product          | `category(category_id)`                                  | `After category`                      |
+| product_variants | `product(product_id)`                                    | `After product`                       |
+| customers        | `None`                                                   | `After category`                      |
+| carts            | `customers(customer_id)`                                 | `After customers`                     |
+| cart_items       | `carts(cart_id)`, `product_variants(variant_id)`         | `After carts`, `product_variants`     |
+| wishlist         | `customers(customer_id)`, `product_variants(variant_id)` | `After customers`, `product_variants` |
+| orders           | `customers(customer_id)`, `coupons(coupon_id)`           | `After customers`, `coupons`          |
+| order_items      | `orders(order_id)`, `product_variants(variant_id)`       | `After orders`, `product_variants`    |
+| payments         | `orders(order_id)`                                       | `After orders`                        |
+| shipping         | `orders(order_id)`                                       | `After orders`                        |
+| coupons          | `None`                                                   | `After customers`                     |
+| reviews          | `customers(customer_id)`, `orders(order_id)`             | `After customers`, `orders`           |
 
 ---
