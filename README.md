@@ -10,7 +10,7 @@
 
 <ul>
     <li>Rajat Joshi - 341125</li>
-    <li>Souravh Ghosh - 341175</li>
+    <li>Sourabh Ghosh - 341175</li>
     <li>Rushi Phadatare - 341180</li>
 </ul>
 </div>
